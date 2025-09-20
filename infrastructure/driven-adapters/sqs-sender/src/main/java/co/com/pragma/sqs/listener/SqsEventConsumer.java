@@ -15,16 +15,14 @@ public class SqsEventConsumer {
 	private final ObtenerContadorPrestamosUseCase useCase;
 	
 	@SqsListener("solicitudes-aprobadas-queue")
-    public void consumeMensaje(String message) {
-        log.info("Evento SQS recibido: {}", message);
-        // Aquí parsear el mensaje para extraer datos si es necesario
+	public void consumeMensaje(String message) {
+	    log.info("Evento SQS recibido: {}", message);
 
-        // Actualizar contador: por ejemplo incrementar en 1
-        useCase.obtenerCantidad()
-            .flatMap(cantidadActual -> useCase.actualizarCantidad(cantidadActual + 1))
-            .doOnError(err -> log.error("Error actualizando contador", err))
-            .subscribe();
-    }
+	    useCase.obtenerCantidad()
+	        .flatMap(cantidadActual -> useCase.actualizarCantidad(cantidadActual + 1))
+	        .doOnError(err -> log.error("Error actualizando contador", err))
+	        .subscribe();
+	}
 	
 
 

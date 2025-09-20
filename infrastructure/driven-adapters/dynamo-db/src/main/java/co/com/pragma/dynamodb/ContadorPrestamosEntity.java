@@ -6,7 +6,7 @@ import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbParti
 @DynamoDbBean
 public class ContadorPrestamosEntity {
 
-    private String contador; // clave primaria, ej: "contador"
+    private String contador; 
     private long contadorPrestamos;
 
     @DynamoDbPartitionKey

@@ -12,5 +12,6 @@ import lombok.Setter;
 @Builder(toBuilder = true)
 public class ContadorPrestamos {
 	
+	private String contador;    
 	private long contadorPrestamos;
 }

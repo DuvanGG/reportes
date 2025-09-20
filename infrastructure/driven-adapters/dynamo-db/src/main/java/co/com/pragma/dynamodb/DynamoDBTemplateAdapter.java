@@ -55,7 +55,11 @@ public class DynamoDBTemplateAdapter
 
 	@Override
 	public Mono<Void> actualizarCantidad(long nuevaCantidad) {
-		ContadorPrestamos contador = ContadorPrestamos.builder().contadorPrestamos(nuevaCantidad).build();
-		return this.save(contador).then();
+	    ContadorPrestamos contador = ContadorPrestamos.builder()
+	        .contador("contador")
+	        .contadorPrestamos(nuevaCantidad)
+	        .build();
+
+	    return this.save(contador).then();
 	}
 }

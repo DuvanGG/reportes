@@ -5,6 +5,8 @@ spring:
     name: "reportes"
   devtools:
     add-properties: false
+    restart:
+      enabled: false
   h2:
     console:
       enabled: true
@@ -29,6 +31,5 @@ cors:
   allowed-origins: "http://localhost:4200,http://localhost:8080"
 adapter:
   sqs:
-    region: "us-east-1"
-    queueUrl: "http://localhost:4566/000000000000/sample"
-#    endpoint: "http://localhost:4566"
+    region: "us-east-2"
+    solicitudesAprobadasQueue: "https://sqs.us-east-2.amazonaws.com/560580021338/solicitudes-aprobadas-queue"
