@@ -62,4 +62,20 @@ public class DynamoDBTemplateAdapter
 
 	    return this.save(contador).then();
 	}
+
+	@Override
+	public Mono<Void> guardarTotalAcumulado(double nuevoTotal) {
+	    ContadorPrestamos contador = ContadorPrestamos.builder()
+	        .contador("acumulado") 
+	        .acumulado(nuevoTotal)
+	        .build();
+	    return this.save(contador).then();
+	}
+
+	@Override
+	public Mono<Double> obtenerTotalAcumulado() {
+	    return this.getById("acumulado")
+	               .map(ContadorPrestamos::getAcumulado)
+	               .switchIfEmpty(Mono.just(0.0));
+	}
 }

@@ -14,4 +14,5 @@ public class ContadorPrestamos {
 	
 	private String contador;    
 	private long contadorPrestamos;
+	private double acumulado;
 }

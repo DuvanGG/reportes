@@ -8,6 +8,7 @@ public class ContadorPrestamosEntity {
 
     private String contador; 
     private long contadorPrestamos;
+    private double acumulado;
 
     @DynamoDbPartitionKey
     public String getContador() {
@@ -25,4 +26,14 @@ public class ContadorPrestamosEntity {
     public void setContadorPrestamos(long contadorPrestamos) {
         this.contadorPrestamos = contadorPrestamos;
     }
+
+	public double getAcumulado() {
+		return acumulado;
+	}
+
+	public void setAcumulado(double acumulado) {
+		this.acumulado = acumulado;
+	}
+    
+    
 }

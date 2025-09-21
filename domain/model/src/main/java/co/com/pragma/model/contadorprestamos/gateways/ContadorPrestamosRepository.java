@@ -7,5 +7,9 @@ public interface ContadorPrestamosRepository {
 	Mono<Long> obtenerCantidad();
 	
     Mono<Void> actualizarCantidad(long nuevaCantidad);
+
+	Mono<? extends Object> guardarTotalAcumulado(double nuevoTotal);
+
+	Mono<Double> obtenerTotalAcumulado();
     
 }
